@@ -10,10 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.3",
-    "mongoose": "4.1.8",
+    "body-parser": "^1.11.0",
     "history": "^1.9.1",
     "immutable": "^3.7.5",
     "json-loader": "^0.5.4",
+    "mongoose": "4.1.8",
     "object-assign": "^4.0.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",

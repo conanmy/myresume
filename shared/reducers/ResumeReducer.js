@@ -1,14 +1,14 @@
 import Immutable from 'immutable';
 const defaultState = new Immutable.List();
-export default function todoReducer(state = defaultState, action) {
+export default function resumeReducer(state = defaultState, action) {
   switch(action.type) {
-    case 'CREATE_TODO':
+    case 'CREATE_RESUME':
       return state.concat(action.res.text);
-    case 'EDIT_TODO':
+    case 'EDIT_RESUME':
       return state.set(action.id, action.text);
-    case 'DELETE_TODO':
+    case 'DELETE_RESUME':
       return state.delete(action.id);
-    case 'GET_TODOS':
+    case 'GET_RESUMES':
       return state.concat(action.res);
     default:
       return state;

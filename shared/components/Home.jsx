@@ -1,11 +1,11 @@
-import React from 'react';a
+import React from 'react';
 import { bindActionCreators } from 'redux';
-import * as TodoActions from '../actions/TodoActions';
+import * as ResumeActions from '../actions/ResumeActions';
 import { connect } from 'react-redux';
 
 class Home extends React.Component {
   static needs = [
-    TodoActions.getTodos
+    ResumeActions.getResumes
   ];
   
   render() {
@@ -18,7 +18,7 @@ class Home extends React.Component {
             {
               resumes.map((resume) => {
                 <a href="#/resume/edit/{{resume._id}}">
-                  <span>{{resume.title}}</span>
+                  <span>{resume.title}</span>
                 </a>
               })
             }

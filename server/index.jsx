@@ -10,9 +10,23 @@ import { Provider } from 'react-redux';
 import * as reducers from '../shared/reducers';
 import promiseMiddleware from '../shared/lib/promiseMiddleware';
 import fetchComponentData from '../shared/lib/fetchComponentData';
+import mongoose from 'mongoose';
+import { API_PATH } from '../shared/config';
+import bodyParser from 'body-parser';
 
-const app = express();
+let app = express();
 app.use(serveStatic(__dirname + '/dist'));
+app.use(bodyParser.json());
+
+let dburi = null;
+if (app.get('env') === 'production') {
+    dburi = process.env.MONGOLAB_URI;
+} else {
+    dburi = 'mongodb://admin:mayue1225@ds011943.mlab.com:11943/myresume-dev';  // 'mongodb://localhost:27017/';
+}
+mongoose.connect(dburi);
+app.use(require('./api/resume'));
+
 app.use((req, res) => {
   const location = createLocation(req.url);
   const reducer = combineReducers(reducers);
