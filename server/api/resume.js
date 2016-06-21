@@ -1,7 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { API_PATH } from '../../shared/config';
+import config from 'config';
 
+const API_PATH = config.get('API_PATH');
 const router = express.Router();
 const Resume = mongoose.model(
     'Resume',
@@ -15,7 +16,7 @@ const Resume = mongoose.model(
 );
 
 router.get(API_PATH + '/resumes/', function(req, res) {
-    Resume.find({userId: req.user._id}, function(err, resumes) {
+    Resume.find({}, function(err, resumes) { // userId: req.user._id
         if (err) {
             res.send(err);
         }
@@ -35,7 +36,7 @@ router.get(API_PATH + '/resumes/:resumeId', function(req, res) {
 });
 
 router.post(API_PATH + '/resumes/', function(req, res) {
-    req.body.userId = req.user._id;
+    // req.body.userId = req.user._id;
     var newResume = new Resume(req.body);
     newResume.save(function(err, resume) {
         if (err) {

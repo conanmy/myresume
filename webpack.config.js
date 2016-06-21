@@ -1,5 +1,7 @@
-var path    = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const config = require('config');
+const _ = require('lodash');
 
 module.exports = {
   entry:  [
@@ -8,12 +10,12 @@ module.exports = {
     './client'
   ],
   output: {
-    path:     path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   resolve: {
     modulesDirectories: ['node_modules', 'shared'],
-    extensions:         ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx']
   },
   node: {
     console: true,
@@ -24,7 +26,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test:    /\.jsx?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: "babel-loader"
       },
@@ -33,7 +35,17 @@ module.exports = {
         loader: 'json-loader'
       }
     ]
-  }/*,
+  },
+  externals: {
+    config: JSON.stringify(_.pick(config, ['API_PATH', 'BASE_URL'])),
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'dev'),
+      },
+    })
+  ]/*,
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
