@@ -35,7 +35,7 @@ export function getResume(params) {
   if (params.resumeId) {
     action.promise = request({
       method: 'GET',
-      uri: API_URL + '/resumes/' + resumeId,
+      uri: API_URL + '/resumes/' + params.resumeId,
       json: true
     });
   } else {

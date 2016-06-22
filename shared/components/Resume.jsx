@@ -1,6 +1,7 @@
 import React from 'react';
 import * as resumeActions from '../actions/resumeActions';
 import { connect } from 'react-redux';
+import LinkedStateMixin from './mixins/LinkedStateMixin';
 
 class Resume extends React.Component {
   static needs = [
@@ -15,6 +16,7 @@ class Resume extends React.Component {
     this.handleSave = this.handleSave.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.addExp = this.addExp.bind(this);
+    this.linkState = LinkedStateMixin.linkState.bind(this);
   }
 
   handleSave() {
@@ -27,13 +29,12 @@ class Resume extends React.Component {
 
   addExp() {
     let resume = this.state.resume;
-    resume.exp.push('new experience');
+    resume.exp.push({text: 'new experience'});
     this.setState({resume: resume});
   }
 
   render() {
     const { resume } = this.state;
-    console.log(resume.exp);
 
     return (
       <div className="clearfix resume-edit-wrapper">
@@ -44,14 +45,16 @@ class Resume extends React.Component {
         <div className="resume-edit">
           <p>
             Resume Title:
-            <input type="text" ng-model="resume.title" />
+            <input type="text" valueLink={this.linkState('resume.title')} />
           </p>
-          <p>Name:<input type="text" ng-model="resume.name" /></p>
-          <p>Email:<input type="text" ng-model="resume.email" /></p>
+          <p>Name:<input type="text" valueLink={this.linkState('resume.name')} /></p>
+          <p>Email:<input type="text" valueLink={this.linkState('resume.email')} /></p>
           <div>
             Experiences:
             {
-              resume.exp.map(expitem => <textarea ng-model="expitem.text">{expitem.text}</textarea>)
+              resume.exp.map((expitem, key) =>
+                <textarea valueLink={this.linkState('resume.exp.' + key + '.text')}></textarea>
+              )
             }
             <a className="btn-add" onClick={this.addExp}>+</a>
           </div>

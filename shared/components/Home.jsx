@@ -1,5 +1,4 @@
 import React from 'react';
-// import { bindActionCreators } from 'redux';
 import * as resumeActions from '../actions/resumeActions';
 import { connect } from 'react-redux';
 
@@ -9,17 +8,19 @@ class Home extends React.Component {
   ];
   
   render() {
-    const { resumes, dispatch } = this.props;
+    const resumes = this.props.resumes.toJS();
     
     return (
       <div className="home">
         <div className="resume-list">
           <div className="clearfix">
             {
-              resumes.map((resume) => {
-                <a href={"/resume/edit/" + resume._id}>
-                  <span>{resume.title}</span>
-                </a>
+              resumes.map(resume => {
+                return (
+                  <a href={"/resume/edit/" + resume._id}>
+                    <span>{resume.title}</span>
+                  </a>
+                );
               })
             }
             <a className="add-resume" href="/resume/add">+</a>
