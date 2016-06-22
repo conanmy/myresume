@@ -20,11 +20,15 @@ class Resume extends React.Component {
   }
 
   handleSave() {
-    this.props.dispatch(resumeActions.createResume(this.state.resume));
+    this.props.dispatch(this.state.resume._id ?
+      resumeActions.updateResume(this.state.resume) : resumeActions.createResume(this.state.resume)
+    );
   }
 
   handleDelete() {
-
+    this.props.dispatch(
+      resumeActions.deleteResume(this.state.resume._id)
+    );
   }
 
   addExp() {

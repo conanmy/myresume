@@ -15,7 +15,6 @@ import bodyParser from 'body-parser';
 
 let app = express();
 app.use(serveStatic(__dirname + '/../dist'));
-console.log(__dirname + '/../dist');
 app.use(bodyParser.json());
 
 let dburi = null;

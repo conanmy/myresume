@@ -16,18 +16,25 @@ export function createResume(resume) {
     })
   }
 }
-export function editResume(id, text) {
+export function updateResume(resume) {
   return {
-    type: 'EDIT_RESUME',
-    id,
-    text,
-    date: Date.now()
+    type: 'UPDATE_RESUME',
+    promise: request({
+      method: 'PUT',
+      uri: API_URL + '/resumes/' + resume._id,
+      body: resume,
+      json: true
+    })
   };
 }
-export function deleteResume(id) {
+export function deleteResume(resumeId) {
   return {
     type: 'DELETE_RESUME',
-    id
+    promise: request({
+      method: 'DELETE',
+      uri: API_URL + '/resumes/' + resumeId,
+      json: true
+    })
   };
 }
 export function getResume(params) {
