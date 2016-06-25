@@ -12,11 +12,9 @@ import promiseMiddleware from '../shared/lib/promiseMiddleware';
 const history = createBrowserHistory();
 
 let initialState = window.__INITIAL_STATE__;
-Object
-  .keys(initialState)
-  .forEach(key => {
-    initialState[key] = fromJS(initialState[key]);
-  });
+Object.keys(initialState).forEach(key => {
+  initialState[key] = fromJS(initialState[key]);
+});
 
 const reducer = combineReducers(reducers);
 const store = applyMiddleware(promiseMiddleware)(createStore)(reducer, initialState);
