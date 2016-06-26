@@ -1,0 +1,23 @@
+body, h2 {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+.clearfix:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix{
+    display: block;
+    *zoom: 1;
+    *clear: both
+}
+.tip {
+    margin-left: 10px;
+}

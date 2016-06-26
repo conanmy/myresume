@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import * as reducers from '../shared/reducers';
 import { fromJS } from 'immutable';
 import promiseMiddleware from '../shared/lib/promiseMiddleware';
+require('./styles/main.css');
 
 const history = createBrowserHistory();
 

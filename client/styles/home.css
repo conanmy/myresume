@@ -1,0 +1,15 @@
+.resume-list a {
+    position: relative;
+    float: left;
+    width: 200px;
+    height: 250px;
+    margin: 10px;
+    line-height: 200px;
+    font-size: 20px;
+    color: gray;
+    text-align: center;
+    background-color: #F6F6F6;
+}
+.resume-list .add-resume {
+    font-size: 40px;
+}
