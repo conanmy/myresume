@@ -10,12 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.11.0",
+    "cookie-parser": "1.4.2",
     "config": "^1.21.0",
-    "css-loader": "^0.23.1",
     "express": "^4.13.3",
     "history": "^1.9.1",
     "immutable": "^3.7.5",
-    "json-loader": "^0.5.4",
     "lodash": "^4.13.1",
     "mongoose": "4.1.8",
     "object-assign": "^4.0.1",
@@ -27,11 +26,16 @@
     "request": "2.65.0",
     "request-promise": "~2.0.0",
     "serve-static": "^1.11.1",
-    "style-loader": "^0.13.1"
+    "passport": "0.3.2",
+    "passport-facebook": "2.1.1",
+    "express-session": "1.13.0"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
+    "style-loader": "^0.13.1",
+    "json-loader": "^0.5.4",
+    "css-loader": "^0.23.1",
     "babel-plugin-transform-class-properties": "^6.9.1",
     "babel-plugin-transform-es2015-destructuring": "^6.8.0",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",

@@ -3,7 +3,7 @@ import * as resumeActions from '../actions/resumeActions';
 import { connect } from 'react-redux';
 import LinkedStateMixin from './mixins/LinkedStateMixin';
 
-class Resume extends React.Component {
+class ResumeView extends React.Component {
   static needs = [
     resumeActions.getResume
   ];
@@ -78,4 +78,4 @@ class Resume extends React.Component {
     );
   }
 }
-export default connect(state => ({ resume: state.resume }))(Resume)
+export default connect(state => ({ resume: state.resume }))(ResumeView)

@@ -1,13 +1,15 @@
 import React from 'react';
 import { Route } from 'react-router';
-import App from './components/index';
-import Home from './components/Home';
-import Resume from './components/Resume';
+import AppView from './components/index';
+import HomeView from './components/Home';
+import ResumeView from './components/Resume';
+import LoginView from './components/Login';
 
 export default (
-  <Route name="app" component={App} path="/">
-  	<Route component={Home} path="home" />
-  	<Route component={Resume} path="resume/add" />
-    <Route component={Resume} path="resume/edit/:resumeId" />
+  <Route name="app" component={AppView} path="/">
+  	<Route component={HomeView} path="" />
+  	<Route component={LoginView} path="login" />
+  	<Route component={ResumeView} path="resume/add" />
+    <Route component={ResumeView} path="resume/edit/:resumeId" />
   </Route>
 );

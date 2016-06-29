@@ -2,7 +2,7 @@ import React from 'react';
 import * as resumeActions from '../actions/resumeActions';
 import { connect } from 'react-redux';
 
-class Home extends React.Component {
+class HomeView extends React.Component {
   static needs = [
     resumeActions.getResumes
   ];
@@ -31,4 +31,4 @@ class Home extends React.Component {
   }
 }
 
-export default connect(state => ({ resumes: state.resumes }))(Home)
+export default connect(state => ({ resumes: state.resumes }))(HomeView)
