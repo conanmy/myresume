@@ -63,7 +63,6 @@ export function getResume(params) {
   return action;
 }
 export function getResumes() {
-  console.log('in getResume');
   return {
     type: 'GET_RESUMES',
     promise: request({

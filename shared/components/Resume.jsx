@@ -45,7 +45,6 @@ class Resume extends React.Component {
         <a className="btn-remove" onClick={this.handleDelete}>
           Delete
         </a>
-        <span className="tip-remove">Deleting...</span>
         <div className="resume-edit">
           <p>
             Resume Title:
