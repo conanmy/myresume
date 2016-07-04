@@ -1,6 +1,6 @@
-var passport = require('passport');
-var mongoose = require('mongoose');
-var FacebookStrategy = require('passport-facebook').Strategy;
+import passport from 'passport';
+import mongoose from 'mongoose';
+import { Strategy } from 'passport-facebook';
 
 exports.init = function() {
 
@@ -20,7 +20,7 @@ exports.init = function() {
         });
     });
     passport.use(
-        new FacebookStrategy({
+        new Strategy({
             clientID: 173388723062737,
             clientSecret: 'b701af3817f00ac891c90958a68ab933',
             callbackURL: "/auth/facebook/callback"

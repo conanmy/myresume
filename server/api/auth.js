@@ -1,6 +1,6 @@
-var express = require('express');
+import express from 'express';
+import passport from 'passport';
 var router = express.Router();
-var passport = require('passport');
 
 router.get('/auth/facebook', passport.authenticate('facebook'));
 router.get(

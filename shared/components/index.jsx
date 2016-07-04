@@ -20,7 +20,7 @@ export default class AppView extends React.Component {
               </div>
               <div>
                 <ul>
-                    <li>><a href="/home">Home</a></li>
+                    <li><a href="/home">Home</a></li>
                     <li><a href="/pool">Pool</a></li>
                 </ul>
                 <div className="user-info"></div>
