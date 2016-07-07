@@ -35,9 +35,6 @@ mongoose.connect(dburi);
 
 require('./passport').init();
 app.use(require('./api/auth'));
-app.get('/user/', function(req, res) {
-    res.json(req.user);
-});
 // app.use(function(req, res, next) {
 //     if (!req.user) {
 //         res.status(500).send('No valid user info.');
@@ -45,10 +42,11 @@ app.get('/user/', function(req, res) {
 //         next();
 //     }
 // });
-app.use(require('./authController'));
+// app.use(require('./authController'));
 app.use(require('./api/resume'));
 
 app.use((req, res) => {
+  console.log(req.user);
   const location = createLocation(req.url);
   const reducer = combineReducers(reducers);
   const store = applyMiddleware(promiseMiddleware)(createStore)(reducer);
