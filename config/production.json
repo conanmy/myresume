@@ -1,4 +1,4 @@
 {
-  "BASE_URL": "http://myresumes.herokuapp.com",
+  "BASE_URL": "http://ec2-54-213-103-96.us-west-2.compute.amazonaws.com",
   "API_PATH": "/api"
 }

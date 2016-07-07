@@ -16,10 +16,13 @@ const Resume = mongoose.model(
 );
 
 router.get(API_PATH + '/resumes/', function(req, res) {
+    console.log('getting resumes');
     Resume.find({}, function(err, resumes) { // userId: req.user._id
         if (err) {
             res.send(err);
         }
+        console.log('got resumes');
+        console.log(resumes);
         res.json(resumes);
     });
 });

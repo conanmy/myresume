@@ -85,7 +85,7 @@ app.use((req, res) => {
       `;
       return HTML;  
     }
-
+    console.log(renderProps);
     fetchComponentData(store.dispatch, renderProps.components, renderProps.params)
       .then(renderView)
       .then(html => res.end(html))
