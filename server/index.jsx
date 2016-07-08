@@ -46,7 +46,6 @@ app.use(require('./api/auth'));
 app.use(require('./api/resume'));
 
 app.use((req, res) => {
-  console.log(req.user);
   const location = createLocation(req.url);
   const reducer = combineReducers(reducers);
   const store = applyMiddleware(promiseMiddleware)(createStore)(reducer);
