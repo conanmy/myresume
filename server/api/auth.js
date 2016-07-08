@@ -8,13 +8,4 @@ router.get(
     passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' })
 );
 
-const protectRoutes = ['/', '/resume'];
-
-protectRoutes.map(route => {
-    router.get(
-        route,
-        passport.authenticate('facebook', { failureRedirect: '/login' })
-    );
-});
-
 module.exports = router;

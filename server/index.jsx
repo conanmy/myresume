@@ -42,7 +42,7 @@ app.use(require('./api/auth'));
 //         next();
 //     }
 // });
-// app.use(require('./authController'));
+app.use(require('./authController'));
 app.use(require('./api/resume'));
 
 app.use((req, res) => {
