@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 class HomeView extends React.Component {
   static needs = [
-    resumeActions.getResumes
+    resumeActions.getResumes.bind(this, this.props.user)
   ];
   
   render() {
@@ -31,4 +31,4 @@ class HomeView extends React.Component {
   }
 }
 
-export default connect(state => ({ resumes: state.resumes }))(HomeView)
+export default connect(state => ({ resumes: state.resumes, user: state.user }))(HomeView)

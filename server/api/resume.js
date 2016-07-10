@@ -15,9 +15,9 @@ const Resume = mongoose.model(
     })
 );
 
-router.get(API_PATH + '/resumes/', function(req, res) {
-    console.log(req.user);
-    Resume.find({userId: req.user._id}, function(err, resumes) {
+router.get(API_PATH + '/resumes', function(req, res) {
+    console.log(req);
+    Resume.find({userId: req.params.userId}, function(err, resumes) {
         if (err) {
             res.send(err);
         }
@@ -36,7 +36,7 @@ router.get(API_PATH + '/resumes/:resumeId', function(req, res) {
     });
 });
 
-router.post(API_PATH + '/resumes/', function(req, res) {
+router.post(API_PATH + '/resumes', function(req, res) {
     req.body.userId = req.user._id;
     var newResume = new Resume(req.body);
     newResume.save(function(err, resume) {

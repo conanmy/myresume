@@ -10,7 +10,7 @@ export function createResume(resume) {
     type: 'CREATE_RESUME',
     promise: request({
       method: 'POST',
-      uri: API_URL + '/resumes/',
+      uri: API_URL + '/resumes',
       body: resume,
       json: true
     }).then(function() {
@@ -62,12 +62,13 @@ export function getResume(params) {
 
   return action;
 }
-export function getResumes() {
+export function getResumes(user) {
   return {
     type: 'GET_RESUMES',
     promise: request({
       method: 'GET',
-      uri: API_URL + '/resumes/',
+      uri: API_URL + '/resumes',
+      qs: {userId: user._id}
       json: true
     })
   }

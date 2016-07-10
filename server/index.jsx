@@ -15,6 +15,7 @@ import bodyParser from 'body-parser';
 import passport from 'passport';
 import cookieParser from 'cookie-parser';
 import expressSession from 'express-session';
+import userActions from '../shared/actions/userActions';
 
 let app = express();
 app.use(cookieParser());
@@ -49,6 +50,7 @@ app.use((req, res) => {
   const location = createLocation(req.url);
   const reducer = combineReducers(reducers);
   const store = applyMiddleware(promiseMiddleware)(createStore)(reducer);
+  store.dispatch(userActions.setUser(req.user));
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {
     if (err) { 
