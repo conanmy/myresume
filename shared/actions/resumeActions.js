@@ -4,7 +4,7 @@ import config from 'config';
 const getConfig = function(keyName) {
   return config.get ? config.get(keyName) : config[keyName];
 };
-const API_URL = getConfig('BASE_URL') + getConfig('API_PATH');
+const API_URL = (config.get ? getConfig('SERVERSIDE_BASE_URL') : getConfig('BASE_URL')) + getConfig('API_PATH');
 export function createResume(resume) {
   return {
     type: 'CREATE_RESUME',

@@ -1,5 +1,6 @@
 {
-  "BASE_URL": "http://localhost:3000",
+  "BASE_URL": "http://ec2-54-213-103-96.us-west-2.compute.amazonaws.com",
+  "SERVERSIDE_BASE_URL": "http://localhost:3000",
   "API_PATH": "/api",
   "MONGOLAB_URL": "mongodb://admin:mayue1225@ds011943.mlab.com:11943/myresume-dev"
 }
