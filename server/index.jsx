@@ -15,7 +15,7 @@ import bodyParser from 'body-parser';
 import passport from 'passport';
 import cookieParser from 'cookie-parser';
 import expressSession from 'express-session';
-import userActions from '../shared/actions/userActions';
+import * as userActions from '../shared/actions/userActions';
 
 let app = express();
 app.use(cookieParser());
