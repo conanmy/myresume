@@ -5,7 +5,9 @@ import LinkedStateMixin from './mixins/LinkedStateMixin';
 
 class ResumeView extends React.Component {
   static needs = [
-    resumeActions.getResume
+    (store, params) => {
+      return store.dispatch(resumeActions.getResume(params));
+    }
   ];
 
   constructor(props) {
