@@ -3,9 +3,13 @@ import * as resumeActions from '../actions/resumeActions';
 import { connect } from 'react-redux';
 
 class HomeView extends React.Component {
-  static needs = [
-    resumeActions.getResumes.bind(this, this.props.user)
-  ];
+
+  constructor() {
+    super();
+    this.needs = [
+      resumeActions.getResumes.bind(null, this.props.user)
+    ];
+  }
   
   render() {
     const resumes = this.props.resumes.toJS();

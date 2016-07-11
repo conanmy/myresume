@@ -68,7 +68,7 @@ export function getResumes(user) {
     promise: request({
       method: 'GET',
       uri: API_URL + '/resumes',
-      qs: {userId: user._id}
+      qs: {userId: user._id},
       json: true
     })
   }
