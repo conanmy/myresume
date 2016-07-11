@@ -16,6 +16,7 @@ import passport from 'passport';
 import cookieParser from 'cookie-parser';
 import expressSession from 'express-session';
 import * as userActions from '../shared/actions/userActions';
+import config from 'config';
 
 let app = express();
 app.use(cookieParser());
@@ -26,23 +27,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(serveStatic(__dirname + '/../dist'));
 
-let dburi = null;
-if (app.get('env') === 'production') {
-    dburi = process.env.MONGOLAB_URI;
-} else {
-    dburi = 'mongodb://admin:mayue1225@ds011943.mlab.com:11943/myresume-dev';  // 'mongodb://localhost:27017/'
-}
-mongoose.connect(dburi);
+mongoose.connect(config.get('MONGOLAB_URL'));
 
 require('./passport').init();
 app.use(require('./api/auth'));
-// app.use(function(req, res, next) {
-//     if (!req.user) {
-//         res.status(500).send('No valid user info.');
-//     } else {
-//         next();
-//     }
-// });
 app.use(require('./authController'));
 app.use(require('./api/resume'));
 

@@ -1,4 +1,5 @@
 {
   "BASE_URL": "http://ec2-54-213-103-96.us-west-2.compute.amazonaws.com",
-  "API_PATH": "/api"
+  "API_PATH": "/api",
+  "MONGOLAB_URL": "mongodb://admin:mayue1225@ds031822.mongolab.com:31822/myresume"
 }
