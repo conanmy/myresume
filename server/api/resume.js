@@ -16,8 +16,7 @@ const Resume = mongoose.model(
 );
 
 router.get(API_PATH + '/resumes', function(req, res) {
-    console.log(req);
-    Resume.find({userId: req.params.userId}, function(err, resumes) {
+    Resume.find({userId: req.query.userId}, function(err, resumes) {
         if (err) {
             res.send(err);
         }

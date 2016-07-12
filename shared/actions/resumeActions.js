@@ -14,7 +14,7 @@ export function createResume(resume) {
       body: resume,
       json: true
     }).then(function() {
-      window.location.assign('/home');
+      window.location.assign('/');
     })
   }
 }
@@ -27,7 +27,7 @@ export function updateResume(resume) {
       body: resume,
       json: true
     }).then(function() {
-      window.location.assign('/home');
+      window.location.assign('/');
     })
   };
 }
@@ -39,7 +39,7 @@ export function deleteResume(resumeId) {
       uri: API_URL + '/resumes/' + resumeId,
       json: true
     }).then(function() {
-      window.location.assign('/home');
+      window.location.assign('/');
     })
   };
 }
@@ -67,8 +67,7 @@ export function getResumes(user) {
     type: 'GET_RESUMES',
     promise: request({
       method: 'GET',
-      uri: API_URL + '/resumes',
-      qs: {userId: user._id},
+      uri: API_URL + '/resumes' + '?userId=' + user._id,
       json: true
     })
   }
