@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const config = require('config');
 const _ = require('lodash');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry:  [
@@ -36,7 +37,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       }
     ]
   },
@@ -48,7 +49,8 @@ module.exports = {
       'process.env': {
           NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'dev'),
       },
-    })
+    }),
+    new ExtractTextPlugin("bundle.css")
   ]/*,
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
