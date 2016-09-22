@@ -29,9 +29,7 @@
     "passport": "0.3.2",
     "passport-facebook": "2.1.1",
     "express-session": "1.13.0",
-    "webpack": "^1.12.1"
-  },
-  "devDependencies": {
+    "webpack": "^1.12.1",
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-class-properties": "^6.9.1",
@@ -44,5 +42,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "json-loader": "^0.5.4",
     "style-loader": "^0.13.1"
+  },
+  "devDependencies": {
   }
 }
